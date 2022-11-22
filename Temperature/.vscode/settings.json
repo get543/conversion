@@ -1,6 +1,0 @@
-{
-  "files.associations": {
-    "*.jar": "bat",
-    "iostream": "cpp"
-  }
-}
