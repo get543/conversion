@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdio.h>
-// #include <conio.h>
+#include <locale>
+#include <string>
 #include <fstream>
 
 using namespace std;
@@ -22,10 +23,10 @@ void readFile(string filename, string fileContent)
     }
     title.close();
   }
-  else cout << "Unable to open file";
+  else cout << "Unable to open file \n";
 }
 
-// conversion from IDR
+// conversion from IDR to ...
 void fromIDR()
 {
   int rupiah, choose;
@@ -35,11 +36,11 @@ void fromIDR()
   // clear screen
   if (system("CLS")) system("clear");
 
-  cout << "------------------------------------------------------------------------\n";
-  cout << "| Anda memilih konversi dari IDR (Rp) ke mata uang yang anda pilih nanti.\n";
+  cout << "----------------------------------------------------------------------\n";
+  cout << "| Anda memilih (2) \n";
+  cout << "| Melakukan konversi dari IDR (Rp) ke mata uang yang anda pilih nanti.\n";
   cout << "| Dari rupiah (Rp) ke ...\n";
-  cout << "------------------------------------------------------------------------\n";
-
+  cout << "----------------------------------------------------------------------\n";
   cout << "\nMasukan jumlah uang dalam rupiah (Rp): ";
   cin >> rupiah;
 
@@ -59,7 +60,10 @@ void fromIDR()
   IDR = rupiah * 1.00;
   GBP = rupiah * 0.000053738205;
   INR = rupiah * 0.0052057787;
-  
+
+  // make cout to match the locale current machine
+  cout.imbue(locale(""));
+
   // case
   switch(choose)
   {
@@ -70,7 +74,7 @@ void fromIDR()
       cout << "Rp" << rupiah << " = ¥" << JPY << endl;
       break;
     case 3:
-      cout << "Rp" << rupiah << " = ₩" << KRW << endl;
+      cout << "Rp" << rupiah << " = ₩ " << KRW << endl;
       break;
     case 4:
       cout << "Rp" << rupiah << " = RM" << MYR << endl;
@@ -94,7 +98,7 @@ void fromIDR()
   }
 }
 
-// conversion from USD
+// conversion from USD to ...
 void fromUSD()
 {
   int choose;
@@ -104,10 +108,11 @@ void fromUSD()
   // clear screen
   if (system("CLS")) system("clear");
 
-  cout << "------------------------------------------------------------------------\n";
-  cout << "| Anda memilih konversi dari USD ($) ke mata uang yang anda pilih nanti.\n";
-  cout << "| Dari Dollar ($) ke ...\n";
-  cout << "------------------------------------------------------------------------\n";
+  cout << "---------------------------------------------------------------------\n";
+  cout << "| Anda memilih (1) \n";
+  cout << "| Melakukan konversi dari USD ($) ke mata uang yang anda pilih nanti.\n";
+  cout << "| Dari ($) Dollar Amerika / USD ke ...\n";
+  cout << "---------------------------------------------------------------------\n";
 
   cout << "\nMasukan jumlah uang dalam dollar ($): ";
   cin >> dollar;
@@ -129,6 +134,9 @@ void fromUSD()
   GBP = dollar * 0.84488388;
   INR = dollar * 81.72132;
 
+  // make cout to match the locale current machine
+  cout.imbue(locale(""));
+
   // case
   switch(choose)
   {
@@ -139,7 +147,7 @@ void fromUSD()
       cout << "$" << dollar << " = ¥" << JPY << endl;
       break;
     case 3:
-      cout << "$" << dollar << " = ₩" << KRW << endl;
+      cout << "$" << dollar << " = ₩ " << KRW << endl;
       break;
     case 4:
       cout << "$" << dollar << " = RM" << MYR << endl;
@@ -175,10 +183,11 @@ void toIDR()
   // clear screen
   if (system("CLS")) system("clear");
 
-  cout << "------------------------------------------------------------------------\n";
-  cout << "| Anda memilih konversi dari mata uang yang kalian pilih ke rupiah (Rp) \n";
-  cout << "| Dari ... ke Rupiah (Rp)\n";
-  cout << "------------------------------------------------------------------------\n";
+  cout << "---------------------------------------------------------------------\n";
+  cout << "| Anda memilih (3) \n";
+  cout << "| Melakukan konversi dari mata uang yang kalian pilih ke rupiah (Rp) \n";
+  cout << "| Dari mata uang ... ke Rupiah (Rp)\n";
+  cout << "---------------------------------------------------------------------\n";
   cout << "Masukan jumlah uang: ";
   cin >> amount;
 
@@ -199,6 +208,9 @@ void toIDR()
   GBP = amount * 18584.168;
   INR = amount * 191.98465;
 
+  // make cout to match the locale current machine
+  cout.imbue(locale(""));
+
   // case
   switch(choose)
   {
@@ -209,7 +221,7 @@ void toIDR()
       cout << "¥" << amount << " = Rp" << JPY << endl;
       break;
     case 3:
-      cout << "₩" << amount << " = Rp" << KRW << endl;
+      cout << "₩ " << amount << " = Rp" << KRW << endl;
       break;
     case 4:
       cout << "RM" << amount << " = Rp" << MYR << endl;
@@ -243,10 +255,11 @@ void toUSD()
   // clear screen
   if (system("CLS")) system("clear");
 
-  cout << "--------------------------------------------------------------------\n";
-  cout << "| Anda memilih konversi dari mata uang yang kalian pilih ke USD ($) \n";
-  cout << "| Dari ... ke USD ($)\n";
-  cout << "--------------------------------------------------------------------\n";
+  cout << "-----------------------------------------------------------------\n";
+  cout << "| Anda memilih (4) \n";
+  cout << "| Melakukan konversi dari mata uang yang kalian pilih ke USD ($) \n";
+  cout << "| Dari mata uang ... ke ($) Dollar Amerika / USD \n";
+  cout << "-----------------------------------------------------------------\n";
   cout << "Masukan jumlah uang: ";
   cin >> amount;
 
@@ -267,6 +280,9 @@ void toUSD()
   GBP = amount * 1.187428;
   INR = amount * 0.012249131;
 
+  // make cout to match the locale current machine
+  cout.imbue(locale(""));
+
   // case
   switch(choose)
   {
@@ -277,7 +293,7 @@ void toUSD()
       cout << "¥" << amount << " = $" << JPY << endl;
       break;
     case 3:
-      cout << "₩" << amount << " = $" << KRW << endl;
+      cout << "₩ " << amount << " = $" << KRW << endl;
       break;
     case 4:
       cout << "RM" << amount << " = $" << MYR << endl;
@@ -335,7 +351,7 @@ int main()
       break;
   }
 
-  cout << "Data: 22 November 2022 @ 13.15\n";
+  cout << "Data: 22 November 2022 @ 13.15 \n";
 
   return 0;
 }
